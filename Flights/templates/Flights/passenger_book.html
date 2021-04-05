@@ -1,0 +1,16 @@
+{% extends 'Flights/base2.html'  %}
+{%block body%}
+<div class="card">
+    <h1 style="padding-left:400px;">BOOK FLIGHT</h1>
+    <div class="card-body">
+        <form action="{% url 'passenger_book'  %}" method="post" style="        padding-left: 400px;">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="btn btn-primary" type="submit" value="book_flight">
+        </form>
+    </div>
+
+</div>
+
+
+{% endblock %}

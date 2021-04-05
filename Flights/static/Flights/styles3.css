@@ -1,0 +1,15 @@
+.flex-container
+{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.flex-container>div
+{
+    width:100px;
+    margin:10px;
+    text-align:center;
+    font-size:20px;
+}
+
+

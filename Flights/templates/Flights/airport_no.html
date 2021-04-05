@@ -1,0 +1,56 @@
+{% extends 'Flights/base2.html'  %}
+{%block body%}
+
+<h1 style="margin-left:480px;">AIRPORT NO: {{airport.id}}</h1>
+
+<div class="container" id="one" 
+     style="background-color:aliceblue;">
+    <h2 style="margin-left:400px; margin-top:30px;">{{ airport }}</h2>
+
+
+    <br />
+    <div class="card" style="
+        width: 30rem;
+        display: flex;
+        margin-left:290px;
+        display: inline-block;
+        justify-content: center;
+        ">
+
+        
+
+        <div class="card-body">
+            <!--<img class="card-img-top" src="https://source.unsplash.com/1600x900/?sky"
+         alt="Card image cap">-->
+            {% for f in flight %}
+            <p class="card-text">
+
+                <div>
+                    {% if airport.id == f.origin.id %}
+
+                    <ul>
+                        <li>
+
+                            Flight from <strong>{{f.origin}}</strong> to <strong>{{f.destination}}</strong>
+                        </li>
+                    </ul>
+
+
+                    {% endif %}
+                </div>
+
+            </p>
+            {% endfor %}
+        </div>
+
+    </div>
+    
+
+
+
+
+
+
+</div>
+
+{% endblock %}

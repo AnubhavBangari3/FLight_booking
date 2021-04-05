@@ -1,0 +1,35 @@
+﻿{% extends 'Flights/base.html'  %}
+{%block body%}
+
+
+<div class="card ">
+    <form id="f1" method="post">
+        {% csrf_token %}
+        <div class="card">
+
+            <div class="card-content" align="center">
+                <h1>LOGIN</h1>
+                <br />
+                <input type="text" name="username" placeholder="username">
+                <br />
+                <br />
+                <input type="password" name="password" placeholder="password">
+                <br />
+                <br />
+                <button >LOGIN</button>
+                <br />
+                <br />
+
+                Not registered?
+                <br />
+                <a class="button is-info" href="{% url 'register' %}">Sign Up</a>
+
+            </div>
+        </div>
+        
+    </form>
+    
+</div>
+
+
+{% endblock %}

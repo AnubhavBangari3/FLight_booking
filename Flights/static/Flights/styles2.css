@@ -1,0 +1,17 @@
+body
+{
+    background-image:url("sunset.jpg");
+    border:none;
+    
+}
+.card {
+    background-image: url("sunset.jpg");
+    border:none;
+}
+#f1{
+    border:none;
+}
+#one{
+    background-color:lavender;
+    padding:20px;
+}

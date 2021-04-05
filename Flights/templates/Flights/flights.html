@@ -1,0 +1,20 @@
+{% extends 'Flights/base2.html'  %}
+{%block body%}
+
+
+<div class="container">
+    <br />
+    <h1> <strong>FLIGHTS</strong></h1>
+    <br />
+    {% for flights in flight %}
+
+    <ul>
+        <li><a href="{% url 'flight_no' flights.id %}">{{flights}}</a>
+        <a href="{% url 'passenger_book' %}"></li>
+    </ul>
+
+
+    {% endfor %}
+</div>
+
+{% endblock %}

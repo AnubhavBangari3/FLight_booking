@@ -1,0 +1,103 @@
+{% extends 'Flights/base2.html'  %}
+{%block body%}
+<style>
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        background-color:lavender;
+    }
+   
+</style>
+
+<div style="float:left; width:60%; padding-top:20px; padding-left:50px;">
+    <h4>FLIGHT NO : {{flight.id}}</h4>
+
+    <table>
+
+        <tr>
+            <th>
+                Origin:
+            </th>
+            <th>
+                Destination:
+            </th>
+            <th>
+                Duration:
+            </th>
+
+
+        </tr>
+        <tr>
+            <td>
+                {{ flight.origin }}
+            </td>
+            <td>
+                {{ flight.destination }}
+            </td>
+            <td>
+                {{ flight.duration }} minutes
+            </td>
+        </tr>
+
+
+    </table>
+    <br />
+    <table>
+        <tr>
+            <th>
+                Passengers
+            </th>
+        </tr>
+        <tr>
+            <td>
+                {% for passengers in page_obj %}
+
+                {{passengers}} - <a href="/{{passengers.id}}/delete">Cancel</a>
+                <br />
+                {% empty %}
+                <h6>No passengers</h6>
+
+                {% endfor %}
+            </td>
+        </tr>
+
+    </table>
+    <br />
+    <h6>Total passengers:{{passengers|length}}</h6>
+    <br />
+    <a href="{% url 'passenger_book'  %}"><button  type="button" class="btn btn-primary">Book</button></a>
+    <!--Try to add logic for not adding more than 30 passenger per flight-->
+    <!--<h4>BOOK</h4>
+        <form action="{% url 'book' flight.id %}" method="post">
+            {% csrf_token %}
+            <p>
+                <label for="id_first">First:</label>
+                <input type="text" name="first" maxlength="120" required id="id_first">
+            </p>
+            <p>
+                <label for="id_last">Last:</label>
+                <input type="text" name="last" maxlength="120" required id="id_last">
+            </p>
+            <select name="flight">
+                {% if flight %}
+                <option value="{{flight.id}}">{{flight}}</option>
+                {% endif %}
+            </select>
+            <input type="submit" />
+        </form>
+    -->
+    <br />
+    {%	include	"Flights/pagination.html"	with	page_number=page_obj	%}
+    <br />
+
+
+    <nav>
+        link to -
+        <a href="{% url 'flight' %}">all flights</a>
+    </nav>
+
+</div>
+
+    
+    {% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'Flights/base2.html'  %}
+{%block body%}
+
+<br />
+<h1 style="margin-left:480px;">AIRPORTS</h1>
+
+<div class="flex-container" style="padding-left: 30px; background-color:gainsboro;">
+    <br />
+
+    
+        {% for A in page_obj %}
+    <div class="card" style="  width: 10rem;
+        background-color:aliceblue;">
+        
+        <div class="card-body">
+           
+            <p class="card-text">
+            <div>
+                
+                  
+              <a href="{% url 'airport_no' A.id %}">{{ A|upper }}</a>
+            </div></p>
+            
+        </div>
+    </div>
+         
+        
+        {% endfor %}
+    
+
+</div>
+{%	include	"Flights/pagination.html"	with	page_number=page_obj	%}
+
+{% endblock %}
